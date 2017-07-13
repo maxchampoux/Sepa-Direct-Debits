@@ -18,6 +18,7 @@ Here are the aprameters, mandatory or optional, which needs your attention:
 |-------|------|------|----------|-------------|
 | paymentScheme | body | String(35) | Required | Means the type of mandate you want to generate. You may have 2 choices : 'sddCore' or 'sddB2b' |
 | client | body | Object | Required | Details on the subscriber of the mandate. (i.e. your client) |
+| reference | body | Required | The subscriber reference. |
 
 **Example of a Call:**
 ```js
@@ -31,11 +32,8 @@ POST /XXX/
       "civility": "M",
       "firstName": "Maxime",
       "lastName": "Champoux",
-      "nationality": "FR",
-      "birthDate": "1995-06-25",
-      "birthCity": "Pessac",
-      "bithCountry": "FR",
+      "language": "FR",
      }
      "email": "test@ibanfirst.com",
-     
+ ```    
     
