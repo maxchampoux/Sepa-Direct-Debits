@@ -28,12 +28,14 @@ POST /XXX/
   "reference": "idMandate",
   "client": {
     "type": "individual",
-    "individualDetails": {
+    "contactDetails": {
       "civility": "M",
       "firstName": "Maxime",
       "lastName": "Champoux",
       "language": "FR",
+      "phone": "+33671738257",
      }
+     "billingAddress": {address}
      "email": "test@ibanfirst.com",
  ```    
     
