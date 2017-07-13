@@ -4,7 +4,7 @@ Create the Checkout transaction
 
 First, you need to prepare:
 * your creditor reference
-* the reference f you subscriber
+* the reference of your subscriber
 * the payer's firstName, lastName and billingAddress
 
 You also need to know the payment scheme you intend to use for this customer. if you don't know what that is, you probably need to use SEPA Direct Debit CORE.
@@ -25,7 +25,6 @@ Here are the aprameters, mandatory or optional, which needs your attention:
 POST /XXX/
 {
   "paymentScheme": "sddCore",
-  "reference": "idMandate",
   "client": {
     "type": "individual",
     "contactDetails": {
@@ -37,5 +36,11 @@ POST /XXX/
      }
      "billingAddress": {address}
      "email": "test@ibanfirst.com",
- ```    
+ ```   
+ 
+**Returns:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| idCustomer | XX | XX |
     
