@@ -106,3 +106,19 @@ You can use this API service to retrieve specific information on a mandate.
 | Field | Type | Description |
 |-------|------|-------------|
 | mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | The details of the mandate created. |
+
+## <a id="deleteMandates_details"></a> Delete a Mandate. ##
+
+```
+Method: POST 
+URL: /mandates/-{id}/
+```
+
+You can use this API service to delete a mandate.
+
+**Parameters:**
+
+| Field | In | Type | Required | Description |
+|-------|------|------|----------|-------------|
+| id | Query | String | required | A mandate ID to specify to retrieve only a specific and extensive mandate detais. |
+
