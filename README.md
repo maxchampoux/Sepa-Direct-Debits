@@ -60,4 +60,49 @@ POST /mandates/
 | Field | Type | Description |
 |-------|------|-------------|
 | mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | The details of the mandate created. |
-    
+
+### <a id="getMandates_list"></a> Retrieve the list of Mandates. ###
+
+```
+Method: GET 
+URL: /mandates/
+```
+
+If you have not implemented our Webhook, you can use this API service to retrieve at any time status and information on mandates you are currently managing.
+
+**Parameters:**
+
+| Field | In | Type | Required | Description |
+|-------|------|------|----------|-------------|
+| page | Query | String | Optional | Index of the page. |
+| perPage | Query | String | Optional | Number of items returned. |
+| fromDate | Query | String | Optional | The starting date to search the list of mandates. |
+| endDate | Query | String | Optional | The end date to search the list of mandates. |
+| sort | Query | String | Optional | A code representing the order of rendering objects. Values should be: "ASC", "DESC". |
+
+**Returns:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| XX | XX | XX |
+
+### <a id="getMandates_details"></a> Retrieve a Mandate details. ###
+
+```
+Method: GET 
+URL: /mandates/-{id}/
+```
+
+You can use this API service to retrieve specific information on a mandate.
+
+**Parameters:**
+
+| Field | In | Type | Required | Description |
+|-------|------|------|----------|-------------|
+| id | Query | String | required | A mandate ID to specify to retrieve only a specific and extensive mandate detais. |
+
+**Returns:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | The details of the mandate created. |
