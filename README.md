@@ -29,7 +29,7 @@ URL: /mandates/
 
 **Example of a Call:**
 ```js
-POST /XXX/
+POST /mandates/
 {
   "paymentScheme": "sddCore",
   "amount": {
