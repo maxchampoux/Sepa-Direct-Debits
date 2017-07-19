@@ -62,7 +62,14 @@ POST /mandates/
 } 
   
  ```   
- 
+
+**Fails:** 
+
+| Error | Description |
+|----------|-------------|
+| invalidCurrency | Currency must be `EUR`. ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) currency code.|
+| invaliIban | IBAN is not part of ([SEPA Zone](https://en.wikipedia.org/wiki/Single_Euro_Payments_Area)).|
+
 **Returns:**
 
 | Field | Type | Description |
@@ -95,13 +102,6 @@ If you have not implemented our Webhook, you can use this API service to retriev
 | Field | Type | Description |
 |-------|------|-------------|
 | XX | XX | XX |
-
-**Fails:** 
-
-| Error | Description |
-|----------|-------------|
-| invalidCurrency | Currency must be `EUR`. ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) currency code.|
-| invaliIban | IBAN is not part of ([SEPA Zone](https://en.wikipedia.org/wiki/Single_Euro_Payments_Area)).|
 
 ### <a id="getMandates_details"></a> Retrieve a Mandate details. ###
 
