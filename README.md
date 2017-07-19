@@ -24,10 +24,10 @@ You can use this API service to Create a new mandate.
 
 | Field | In | Type | Required | Description |
 |-------|------|------|----------|-------------|
-| paymentScheme | Body | String(35) | Required | Means the type of mandate you want to generate. You may have 2 choices : 'sddCore' or 'sddB2b' |
+| paymentScheme | Body | String(35) | Required | Means the type of mandate you want to generate. You may have 2 choices : `sddCore` or `sddB2b`. |
 | amount | Body | Object([Amount Object](../objects/objects.md#customer_object)) | Required | The amount that will be debited for each interval. |
-| intervalUnit | Body | String(35) | Required | The interval of time of each debit. You may have 3 choices : 'monthly', 'quarterly', 'annualy'. |
-| dayOfMonth | Body | Numérical | Required | The interval of time of each debit. As per ([RFC 2445](https://www.ietf.org/rfc/rfc2445.txt)). The day of the month to charge customers on. 1-28 or -1 to indicate the last day of the month. |
+| intervalUnit | Body | String(35) | Required | The interval of time of each debit. You may have 3 choices : `monthly`, `quarterly`, `annualy`. |
+| dayOfMonth | Body | Numérical | Required | The interval of time of each debit. As per ([RFC 2445](https://www.ietf.org/rfc/rfc2445.txt)). The day of the month to charge customers on. `1`-`28` or `-1` to indicate the last day of the month. |
 | customer | Body | Object([Customer Object](../objects/objects.md#customer_object)) | Required | Details on the subscriber of the mandate. (i.e. the end customer) |
 | tag | Body | String (150) | Required | Customized reference - Free format. |
 
