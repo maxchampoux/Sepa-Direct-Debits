@@ -8,7 +8,9 @@
 | [`GET /mandates/`](#getMandates_list) | Retrieve the list of Mandates. |
 | [`GET /mandates/-{id}/`](#getMandates_details) | Retrieve the details of a Mandate. |
 | [`DELETE /mandates/-{id}/`](#deleteMandates_details) | Delete a Mandate. |
-| [`POST /refunds/}`](#post_mandates) | Create a refund on an existing mandate. |
+| [`POST /refunds/-{id}/financialMovements/-{idFinancialMovement}/}`](#post_refunds) | Create a refund on an existing mandate. |
+| [`GET /refunds/}`](#get_refundsList) | Retrieve a list of refunds |
+| [`GET /refunds/-{id}/financialMovements/-{idFinancialMovement}/`](#get_RefundsDetails) | Retrieve the details of a Refund. |
 
 ## <a id="post_mandates"></a> Create a new mandate and get your (UMR) Unique Mandate Reference. ##
 
@@ -124,14 +126,14 @@ You can use this API service to delete a mandate.
 |-------|------|------|----------|-------------|
 | id | Query | String | Required | A mandate ID to specify to retrieve only a specific and extensive mandate detais. |
 
-## <a id="post_mandates"></a> Create a refund on an existing mandate. ##
+## <a id="post_refunds"></a> Create a refund on an existing mandate. ##
 
 ```
 Method: POST 
 URL: /refunds/-{id}/financialMovements/-{idFinancialMovement}/
 ```
 
-You can use this API service to refund a financial movement (credit) linked to one of your mandate
+You can use this API service to refund a financial movement (credit) linked to one of your mandate.
 
 **Parameters:**
 
@@ -140,7 +142,7 @@ You can use this API service to refund a financial movement (credit) linked to o
 | id | Query | String | Required | A mandate ID to specify to retrieve only a specific and extensive mandate detais. |
 | idFinancialMovement | Query | String | Required | A financial movement ID to specify in order to be refunded. Credit will be reversed attention to the end customer. |
 | tag | Body | String (60) | Optional | Customized reference - Free format. |
-| communication | Body | String (140) | Optional | An optional refund communication, displayed on the end-customer's bank statement. This can be up to 140 characters for SEPA payments. |
+| communication | Body | String (140) | Optional | An optional refund communication (Free format), displayed on the end-customer's bank statement. This can be up to 140 characters for SEPA payments. |
 
 **Fails:** 
 
@@ -148,10 +150,43 @@ You can use this API service to refund a financial movement (credit) linked to o
 |----------|-------------|
 | refundPaymentInvalidStatus | when the linked payment isn't either 'confirmed' or 'paidOut'. |
 
-** Question:** 
+**Question:** 
 * Possibilité de faire un refund d'un montant partiel?
 * Le refund doit se faire sur un objet paiement ou sur un objet FM?
+* Est-ce qu'il faut indiquer la raison du refund?
 
+## <a id="get_refundsList"></a> Retrieve a list of refunds. ##
 
+```
+Method: GET 
+URL: /refunds/
+```
+
+You can use this API service to retrieve a list of refunds.
+
+| Field | In | Type | Required | Description |
+|-------|------|------|----------|-------------|
+| id | Query | String | Required | A mandate ID to specify to retrieve only a specific and/or extensive refunds detais. |
+| page | Query | String | Optional | Index of the page. |
+| perPage | Query | String | Optional | Number of items returned. |
+| fromDate | Query | String | Optional | The starting date to search the list of refunds. |
+| endDate | Query | String | Optional | The end date to search the list of refunds. |
+| sort | Query | String | Optional | A code representing the order of rendering objects. Values should be: "ASC", "DESC". |
+
+## <a id="get_refundsDetails"></a> Retrieve the details of a Refund. ##
+
+```
+Method: GET 
+URL: /refunds/-{id}/financialMovements/-{idFinancialMovement}/
+```
+
+You can use this API service to retrieve a specific refund details.
+
+**Parameters:**
+
+| Field | In | Type | Required | Description |
+|-------|------|------|----------|-------------|
+| id | Query | String | Required | A mandate ID to specify to retrieve only a specific and extensive mandate detais. |
+| idFinancialMovement | Query | String | Required | A financial movement ID to specify in order to be refunded. Credit will be reversed attention to the end customer. |
 
 
