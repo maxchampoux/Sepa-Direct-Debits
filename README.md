@@ -16,6 +16,7 @@
 Method: POST 
 URL: /mandates/
 ```
+You can use this API service to Create a new mandate.
 
 **Parameters:**
 
@@ -26,6 +27,7 @@ URL: /mandates/
 | intervalUnit | Body | String(35) | Required | The interval of time of each debit. You may have 3 choices : 'monthly', 'quarterly', 'annualy'. |
 | dayOfMonth | Body | Numérical | Required | The interval of time of each debit. |
 | customer | Body | Object([Customer Object](../objects/objects.md#customer_object)) | Required | Details on the subscriber of the mandate. (i.e. the end customer) |
+| tag | Body | String (150) | Required | Customized reference - Free format. |
 
 **Example of a Call:**
 ```js
@@ -120,5 +122,35 @@ You can use this API service to delete a mandate.
 
 | Field | In | Type | Required | Description |
 |-------|------|------|----------|-------------|
-| id | Query | String | required | A mandate ID to specify to retrieve only a specific and extensive mandate detais. |
+| id | Query | String | Required | A mandate ID to specify to retrieve only a specific and extensive mandate detais. |
+
+## <a id="post_mandates"></a> Create a refund on an existing mandate. ##
+
+```
+Method: POST 
+URL: /refunds/-{id}/financialMovements/-{idFinancialMovement}/
+```
+
+You can use this API service to refund a financial movement (credit) linked to one of your mandate
+
+**Parameters:**
+
+| Field | In | Type | Required | Description |
+|-------|------|------|----------|-------------|
+| id | Query | String | Required | A mandate ID to specify to retrieve only a specific and extensive mandate detais. |
+| idFinancialMovement | Query | String | Required | A financial movement ID to specify in order to be refunded. Credit will be reversed attention to the end customer. |
+| tag | Body | String (60) | Optional | Customized reference - Free format. |
+| communication | Body | String (140) | Optional | An optional refund communication, displayed on the end-customer's bank statement. This can be up to 140 characters for SEPA payments. |
+
+**Fails:** 
+
+| Error | Description |
+| refundPaymentInvalidStatus | when the linked payment isn't either 'confirmed' or 'paidOut'. |
+
+Question :
+- possibilité de faire un refund d'un montant partiel?
+- Le refund doit se faire sur un objet paiement ou sur un objet FM?
+
+
+
 
