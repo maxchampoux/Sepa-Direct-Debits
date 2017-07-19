@@ -145,11 +145,12 @@ You can use this API service to refund a financial movement (credit) linked to o
 **Fails:** 
 
 | Error | Description |
+|----------|-------------|
 | refundPaymentInvalidStatus | when the linked payment isn't either 'confirmed' or 'paidOut'. |
 
-Question :
-- possibilité de faire un refund d'un montant partiel?
-- Le refund doit se faire sur un objet paiement ou sur un objet FM?
+** Question:** 
+* Possibilité de faire un refund d'un montant partiel?
+* Le refund doit se faire sur un objet paiement ou sur un objet FM?
 
 
 
