@@ -94,6 +94,13 @@ If you have not implemented our Webhook, you can use this API service to retriev
 |-------|------|-------------|
 | XX | XX | XX |
 
+**Fails:** 
+
+| Error | Description |
+|----------|-------------|
+| invalidCurrency | Currency must be `EUR`. ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) currency code.|
+| invaliIban | IBAN is not part of ([SEPA Zone](https://en.wikipedia.org/wiki/Single_Euro_Payments_Area)).|
+
 ### <a id="getMandates_details"></a> Retrieve a Mandate details. ###
 
 ```
@@ -175,7 +182,7 @@ You can use this API service to retrieve a list of refunds.
 | perPage | Query | String | Optional | Number of items returned. |
 | fromDate | Query | String | Optional | The starting date to search the list of refunds. |
 | endDate | Query | String | Optional | The end date to search the list of refunds. |
-| sort | Query | String | Optional | A code representing the order of rendering objects. Values should be: "ASC", "DESC". |
+| sort | Query | String | Optional | A code representing the order of rendering objects. Values should be: `ASC`, `DESC`. |
 
 ## <a id="get_refundsDetails"></a> Retrieve the details of a Refund. ##
 
