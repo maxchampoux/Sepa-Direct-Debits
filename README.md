@@ -28,6 +28,7 @@ You can use this API service to Create a new mandate.
 | amount | Body | Object([Amount Object](../objects/objects.md#customer_object)) | Required | The amount that will be debited for each interval. |
 | intervalUnit | Body | String(35) | Required | The interval of time of each debit. You may have 4 choices : `oneOff`, `monthly`, `quarterly`, `yearly`. |
 | dayOfMonth | Body | Numérical | Optional | The interval of time of each debit. As per ([RFC 2445](https://www.ietf.org/rfc/rfc2445.txt)). The day of the month to charge customers on. `1`-`28` or `-1` to indicate the last day of the month. |
+| startDate | Body | Numérical | Optional | The date on which the first payment should be charged. Must be within one year of creation. When blank, this will be set as the mandate’s next possible charge date. |
 | endDate | Body | Numérical | Optional | Date on or after which no further payments should be created. If this field is blank and `count` is not specified, the subscription will continue forever. |
 | count | Body | Numérical | Optional | An alternative way to set `endDate`. The total number of payments that should be taken by this subscription. This will set `endDate` automatically. |
 | customer | Body | Object([Customer Object](../objects/objects.md#customer_object)) | Required | Details on the subscriber of the mandate. (i.e. the end customer) |
