@@ -4,7 +4,7 @@
 |-------|-------------|
 | [`POST /mandates/authorizationDebit/`](#postMandates_ReceiptB2B) | Ask for authorization on a received B2B SDD mandate. |
 | [`GET /mandates/`](#getMandates_list) | Retrieve the list of Mandates. |
-| [`GET /mandates/-{ID}/`](#getMandates_list) | Retrieve the list of Mandates. |
+| [`GET /mandates/-{ID}/`](#getMandates_list) | Retrieve details on a specific Mandate. |
 | [`DELETE /mandates/-{ID}/`](#deleteMandates_details) | Delete a Mandate. |
 
 ## <a id="postMandates_ReceiptB2B"></a> Authorize a B2B SDD mandate. ##
