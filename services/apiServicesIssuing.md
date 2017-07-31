@@ -51,7 +51,7 @@ POST /mandates/authorizationDebit/
 |-------|------|-------------|
 | mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | The details of the mandate created. |
 
-When a mandate is created, the Unique Mandate reference (URM) is specified in the ([Mandate Object](../objects/objects.md#mandate_object)) returned.
+
 
 
 
