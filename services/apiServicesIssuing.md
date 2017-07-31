@@ -14,11 +14,11 @@ Method: POST
 URL: /mandates/-{URM}/authorizationDebit/
 ```
 
-**Description**
+**Description:**
 
 You can use this API Service to authorize the debit on your iBanFirst account coming from a new B2B SDD Mandate. All B2B SDD debit are per default automatically rejected by iBanFirst and must be validated by iBanFirst Compliance Dpt before debit.
 
-**Parameters**
+**Parameters:**
 
 | Field | In | Type | tag depth | Required | Description |
 |-------|------|------|------|----------|-------------|
@@ -51,7 +51,7 @@ POST /mandates/authorizationDebit/
 
 | Field | Type | Description |
 |-------|------|-------------|
-| mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | The details of the mandate created. |
+| mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | Details of a mandate. |
 
 ### <a id="getMandates_list"></a> Retrieve the list of Mandates. ###
 
@@ -60,11 +60,11 @@ Method: GET
 URL: /mandates/
 ```
 
-**Description**
+**Description:**
 
 If you have not implemented our Webhook, you can use this API service to retrieve at any time status and information on mandates you are currently managing. For SDD mandates on debit of your account, please use the filter in the API call.
 
-**Parameters**
+**Parameters:**
 
 | Field | In | Type | tag depth | Required | Description |
 |-------|------|------|------|----------|-------------|
@@ -80,7 +80,7 @@ If you have not implemented our Webhook, you can use this API service to retriev
 
 | Field | Type | Description |
 |-------|------|-------------|
-| XX | XX | XX |
+| mandate | Array([Mandate Object](../objects/objects.md#mandate_object)) | A list of mandates. |
 
 ### <a id="getMandates_details"></a> Retrieve a Mandate details. ###
 
@@ -88,6 +88,8 @@ If you have not implemented our Webhook, you can use this API service to retriev
 Method: GET 
 URL: /mandates/-{ID}/
 ```
+
+**Description:**
 
 You can use this API service to retrieve specific information on a mandate.
 
@@ -101,6 +103,6 @@ You can use this API service to retrieve specific information on a mandate.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | The details of the mandate created. |
+| mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | Details of a mandate. |
 
 
