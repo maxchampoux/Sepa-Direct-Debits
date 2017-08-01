@@ -5,7 +5,7 @@
 | [`POST /mandates/authorizationDebit/`](#postMandates_ReceiptB2B) | Ask for authorization on a received B2B SDD mandate. |
 | [`GET /mandates/`](#getMandates_list) | Retrieve the list of Mandates. |
 | [`GET /mandates/-{ID}/`](#getMandates_details) | Retrieve details on a specific Mandate. |
-| [`DELETE /mandates/-{ID}/`](#deleteMandates_details) | Delete a Mandate. |
+| [`PUT /mandates/-{ID}/revoke/`](#putRevokeMandates_details) | Revoke a Mandate. |
 
 ## <a id="postMandates_ReceiptB2B"></a> Authorize a B2B SDD mandate. ##
 
@@ -22,7 +22,7 @@ You can use this API Service to authorize the debit on your iBanFirst account co
 
 | Field | In | Type | tag depth | Required | Description |
 |-------|------|------|------|----------|-------------|
-| urm | Query | String(35) | + | Required | Unique Reference of Mandate (URM). `++MM500710136744790`. |
+| urm | Body | String(35) | + | Required | Unique Reference of Mandate (URM). `++MM500710136744790`. |
 | counterpartyName | Body | String(60) | + | Required | Name of the counterparty that has issued the mandate. It can only be a corporate. |
 | sci | Body | String(35) | + | Required | Sepa Credit Identifier (SCI). This is a structured format: `FR-47-EDF-001007`. |
 | document | Body | [Document Object](../objects/objects.md#document_object) | + | Required | Empty file. |
@@ -105,16 +105,16 @@ You can use this API service to retrieve specific information on a mandate.
 |-------|------|-------------|
 | mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | Details of a mandate. |
 
-## <a id="deleteMandates_details"></a> Delete a Mandate. ##
+## <a id="putRevokeMandates_details"></a> Revoke a Mandate. ##
 
 ```
-Method: POST 
-URL: /mandates/-{id}/
+Method: PUT 
+URL: /mandates/-{id}/revoke/
 ```
 
 **Description:**
 
-You can use this API service to delete a mandate. All payments scheduled and related to this mandate will be automatically deleted. You will be notified by webhook on all payments deleted.
+You can use this API service to revoke a mandate. All payments scheduled and related to this mandate will be automatically deleted. You will be notified by webhook on all payments deleted.
 
 **Parameters:**
 
