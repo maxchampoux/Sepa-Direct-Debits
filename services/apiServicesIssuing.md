@@ -4,7 +4,7 @@
 |-------|-------------|
 | [`POST /mandates/authorizationDebit/`](#postMandates_ReceiptB2B) | Ask for authorization on a received B2B SDD mandate. |
 | [`GET /mandates/`](#getMandates_list) | Retrieve the list of Mandates. |
-| [`GET /mandates/-{ID}/`](#getMandates_list) | Retrieve details on a specific Mandate. |
+| [`GET /mandates/-{ID}/`](#getMandates_details) | Retrieve details on a specific Mandate. |
 | [`DELETE /mandates/-{ID}/`](#deleteMandates_details) | Delete a Mandate. |
 
 ## <a id="postMandates_ReceiptB2B"></a> Authorize a B2B SDD mandate. ##
@@ -95,9 +95,9 @@ You can use this API service to retrieve specific information on a mandate.
 
 **Parameters:**
 
-| Field | In | Type | Required | Description |
-|-------|------|------|----------|-------------|
-| id | Query | String | required | A mandate ID to specify to retrieve only a specific and extensive mandate detais. |
+| Field | In | Type | tag depth | Required | Description |
+|-------|------|------|------|----------|-------------|
+| id | Query | String | + | Required | The iBanFirst Mandate ID. |
 
 **Returns:**
 
@@ -105,4 +105,25 @@ You can use this API service to retrieve specific information on a mandate.
 |-------|------|-------------|
 | mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | Details of a mandate. |
 
+## <a id="deleteMandates_details"></a> Delete a Mandate. ##
 
+```
+Method: POST 
+URL: /mandates/-{id}/
+```
+
+**Description:**
+
+You can use this API service to delete a mandate. All payments scheduled and related to this mandate will be automatically deleted. You will be notified by webhook on all payments deleted.
+
+**Parameters:**
+
+| Field | In | Type | tag depth | Required | Description |
+|-------|------|------|------|----------|-------------|
+| id | Query | String | + | Required | The iBanFirst Mandate ID. |
+
+**Returns:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| mandate | Object([Mandate Object](../objects/objects.md#mandate_object)) | Details of a mandate. |
