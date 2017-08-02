@@ -11,7 +11,7 @@
 
 ```
 Method: POST 
-URL: /mandates/-{URM}/authorizationDebit/
+URL: /mandates/authorizationDebit/
 ```
 
 **Description:**
