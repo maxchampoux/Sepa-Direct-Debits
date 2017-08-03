@@ -20,7 +20,7 @@ You can use this API Service to authorize the debit on your iBanFirst account co
 
 **Parameters:**
 
-| Field | In | Type | tag depth | Required | Description |
+| Field | In | Type | Tag depth | Required | Description |
 |-------|------|------|------|----------|-------------|
 | urm | Body | String(35) | + | Required | Unique Reference of Mandate (URM). `++MM500710136744790`. |
 | counterpartyName | Body | String(60) | + | Required | Name of the counterparty that has issued the mandate. It can only be a corporate. |
@@ -66,7 +66,7 @@ If you have not implemented our Webhook, you can use this API service to retriev
 
 **Parameters:**
 
-| Field | In | Type | tag depth | Required | Description |
+| Field | In | Type | Tag depth | Required | Description |
 |-------|------|------|------|----------|-------------|
 | side | Query | String | + | Optional | Means the quality (debtor or creditor) you are on the mandate. You may have 2 choices : `debtor` or `creditor`.  |
 | scheme | Query | String | + | Optional | Means the type of mandate related. You may have 2 choices: `core` or `b2b`. |
@@ -95,7 +95,7 @@ You can use this API service to retrieve specific information on a mandate.
 
 **Parameters:**
 
-| Field | In | Type | tag depth | Required | Description |
+| Field | In | Type | Tag depth | Required | Description |
 |-------|------|------|------|----------|-------------|
 | id | Query | String | + | Required | The iBanFirst Mandate ID. |
 
@@ -118,7 +118,7 @@ You can use this API service to revoke a mandate. All payments scheduled and rel
 
 **Parameters:**
 
-| Field | In | Type | tag depth | Required | Description |
+| Field | In | Type | Tag depth | Required | Description |
 |-------|------|------|------|----------|-------------|
 | id | Query | String | + | Required | The iBanFirst Mandate ID. |
 
