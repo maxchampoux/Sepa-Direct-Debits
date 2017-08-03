@@ -1,1 +1,67 @@
-test
+# API Objects & Lists
+
+* [Mandates Object](#mandates_object)
+* [Entity Debtor Object](#entityDebtor_object)
+* [Entity Creditor Object](#entityDebtor_object)
+* [Payments Object](#payments_object)
+* [Document Object](#document_object)
+* [Address Object](#address_object)
+
+## Details ##
+
+#### <a id="mandates_object"></a> Mandates Object ####
+
+The main object in the Sepa Direct Debit solution. 
+
+**Object resources:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | [ID](../conventions/formattingConventions.md#type_id) | The IF code identifying the mandates as unique. |
+| urm | String(35) | Unique Reference of Mandate (URM). `++MM500710136744790`. |
+| entityDebtor | [Entity Object](#entity_object) | The entity objet representing the debtor. |
+| entityCreditor | [Entity Object](#entity_object) | The entity objet representing the creditor. |
+| payments | Array<[Payments Object](#payments_object)> | An array listing all payments related to the mandates. |
+| document | [Document Object](#document_object) | All documents related to the mandates. |
+
+**Example:**
+
+```js
+{
+    "id": "NDgzOTU",
+    "urm": "++MM500710136744790",
+    "entityDebtor": {
+      "type": "individual",
+      "email": "test@ibanfirst.com",
+      "registeredAddress": {
+        "street": "42 avenue de la grande armée",
+        "postCode": "75017",
+        "city": "Paris",
+        "country": "FR"
+      },
+      "registeredIndividualName": {
+        "civility": "M",
+        "firstName": "Arnaud",
+        "lastName": "Ruppe",
+      },
+    },
+    "entityCreditor": {
+      "type": "corporate",
+      "sci": "FR-47-EDF-001007",
+      "registeredAddress": {
+        "street": "42 avenue de la grande armée",
+        "postCode": "75017",
+        "city": "Paris",
+        "country": "FR"
+      },
+      "registeredCorporateName": "Pied Pieper Paris",
+    },
+    "payments": {payment}
+    "document": {
+        "type": "mandateSddB2b",
+        "name": "TrésorPublicMandate.pdf",
+        "file": "DPcCUEQs1hrqSxB3giGY620kQJ1BujlG4rOh+jjvEeW79GpT.....5Oj8dj1wQiKoqyaNGi4cOH51LYvn37k08+WVpaah4"
+    }
+}
+
+```
